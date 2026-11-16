@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2e9">
+  <meta name="description" content="ニッケコルトンプラザでのんびり、大慶園で思いきり遊ぶ。千葉県市川市の一日を楽しむおでかけガイド。">
+  <title>ICHIKAWA, PLAYFUL DAYS. | 市川おでかけ案内</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #173c35;
+      --paper: #f5f2e9;
+      --orange: #e97248;
+      --green: #c5d66f;
+      --muted: #64746d;
+      --serif: Georgia, "Times New Roman", serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "DM Sans", "Noto Sans JP", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+    .wrap { width: min(1160px, calc(100% - 64px)); margin-inline: auto; }
+
+    .topbar {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgb(23 60 53 / 13%);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 800; letter-spacing: .12em; }
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+    .nav { display: flex; align-items: center; gap: 34px; font-size: 12px; font-weight: 700; }
+    .nav a { transition: opacity .2s ease; }
+    .nav a:hover { opacity: .58; }
+    .nav .nav-cta { padding: 12px 17px; border: 1px solid var(--ink); border-radius: 999px; }
+
+    .hero { position: relative; padding: 68px 0 84px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: .88fr 1.12fr; align-items: center; gap: 36px; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .2em; }
+    .eyebrow::before { width: 24px; height: 1px; background: var(--orange); content: ""; }
+    h1 { margin: 24px 0 18px; font-size: clamp(42px, 6.2vw, 78px); font-weight: 800; letter-spacing: -.075em; line-height: 1.05; }
+    h1 span { display: block; color: var(--orange); font-family: var(--serif); font-size: .73em; font-weight: 400; font-style: italic; letter-spacing: -.06em; }
+    .hero-copy { max-width: 410px; color: #53665e; font-size: 14px; line-height: 2.15; }
+    .hero-link { display: inline-flex; align-items: center; gap: 14px; margin-top: 20px; font-size: 12px; font-weight: 800; }
+    .circle-arrow { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 50%; background: var(--green); font-size: 18px; transition: transform .2s ease; }
+    .hero-link:hover .circle-arrow { transform: translateX(4px); }
+    .hero-art { position: relative; min-height: 445px; }
+    .hero-photo { position: absolute; inset: 12px 7% 15px 12%; width: 81%; height: calc(100% - 27px); object-fit: cover; border-radius: 48% 48% 8px 8px; }
+    .hero-photo::after { content: ""; }
+    .hero-orbit { position: absolute; inset: 0 2% 2% 6%; border: 1px solid var(--orange); border-radius: 50% 50% 4px 4px; transform: rotate(4deg); }
+    .hero-sticker {
+      position: absolute;
+      right: 0;
+      bottom: 34px;
+      display: grid;
+      width: 106px;
+      height: 106px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green);
+      color: var(--ink);
+      text-align: center;
+      font-size: 10px;
+      font-weight: 800;
+      line-height: 1.6;
+      transform: rotate(9deg);
+    }
+    .hero-sticker span { font-family: var(--serif); font-size: 23px; font-weight: 400; }
+    .vertical-note { position: absolute; top: 50%; left: 0; color: var(--muted); font-size: 9px; letter-spacing: .18em; writing-mode: vertical-rl; }
+    .hero-bottom { display: flex; justify-content: space-between; margin-top: 44px; color: var(--muted); font-size: 10px; letter-spacing: .1em; }
+
+    .ticker { overflow: hidden; padding: 18px 0; background: var(--ink); color: var(--paper); }
+    .ticker-track { display: flex; width: max-content; align-items: center; gap: 30px; animation: drift 32s linear infinite; }
+    .ticker span { font-family: var(--serif); font-size: 19px; font-style: italic; letter-spacing: .06em; }
+    .ticker b { color: var(--green); font-size: 13px; }
+    @keyframes drift { to { transform: translateX(-50%); } }
+
+    .section { padding: 108px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; margin-bottom: 38px; }
+    .section-kicker { color: var(--orange); font-size: 10px; font-weight: 800; letter-spacing: .2em; }
+    h2 { margin: 12px 0 0; font-size: clamp(31px, 4vw, 48px); font-weight: 800; letter-spacing: -.06em; line-height: 1.15; }
+    .section-head p { max-width: 360px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.9; }
+    .places { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .place-card { position: relative; display: flex; min-height: 465px; flex-direction: column; justify-content: end; overflow: hidden; border-radius: 4px; color: white; isolation: isolate; }
+    .place-card::before { position: absolute; z-index: -2; inset: 0; background-position: center; background-size: cover; content: ""; transition: transform .6s ease; }
+    .place-card:hover::before { transform: scale(1.04); }
+    .place-card::after { position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, transparent 20%, rgb(12 27 23 / 76%) 100%); content: ""; }
+    .colton::before { background-image: url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=85"); }
+    .daikeien::before { background-image: url("https://images.unsplash.com/photo-1511882150382-421056c89033?auto=format&fit=crop&w=1200&q=85"); }
+    .place-number { position: absolute; top: 28px; left: 30px; color: white; font-family: var(--serif); font-size: 16px; font-style: italic; }
+    .place-content { padding: 32px; }
+    .place-label { margin-bottom: 12px; font-size: 10px; font-weight: 700; letter-spacing: .16em; }
+    .place-title { margin: 0; font-size: clamp(27px, 3.5vw, 40px); font-weight: 800; letter-spacing: -.04em; }
+    .place-title small { display: block; margin-top: 6px; font-size: 13px; font-weight: 500; letter-spacing: .04em; }
+    .place-desc { max-width: 380px; margin: 16px 0 22px; color: rgb(255 255 255 / 84%); font-size: 12px; line-height: 1.9; }
+    .place-more { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 800; }
+    .place-more span { display: grid; width: 28px; height: 28px; place-items: center; border: 1px solid rgb(255 255 255 / 66%); border-radius: 50%; }
+
+    .more-spots {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 24px;
+      padding: 28px 32px;
+      background: var(--green);
+    }
+    .more-spots p { margin: 0; font-size: 13px; font-weight: 700; line-height: 1.8; }
+    .more-spots p span { display: block; color: #53665e; font-size: 10px; font-weight: 500; letter-spacing: .08em; }
+    .more-spots a { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 12px; font-size: 11px; font-weight: 800; }
+    .more-spots a span { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid var(--ink); border-radius: 50%; }
+
+    .day { background: #e8ebd9; }
+    .day-grid { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 86px; }
+    .day-intro p { max-width: 340px; margin-top: 20px; color: var(--muted); font-size: 13px; line-height: 2; }
+    .timeline { border-top: 1px solid rgb(23 60 53 / 20%); }
+    .time-row { display: grid; grid-template-columns: 88px 1fr; gap: 16px; padding: 23px 0; border-bottom: 1px solid rgb(23 60 53 / 20%); }
+    .time { color: var(--orange); font-family: var(--serif); font-size: 18px; font-style: italic; }
+    .time-row h3 { margin: 0 0 5px; font-size: 15px; }
+    .time-row p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.8; }
+
+    .note { padding: 94px 0; text-align: center; }
+    .note .quote-mark { color: var(--orange); font-family: var(--serif); font-size: 52px; line-height: .8; }
+    .note h2 { max-width: 700px; margin: 20px auto 16px; font-size: clamp(27px, 4vw, 43px); line-height: 1.55; }
+    .note p { color: var(--muted); font-size: 12px; line-height: 2; }
+    .footer { padding: 31px 0; border-top: 1px solid rgb(23 60 53 / 16%); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; }
+    .footer small { color: var(--muted); font-size: 9px; letter-spacing: .08em; }
+    .footer-link { font-size: 10px; font-weight: 700; }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 40px, 560px); }
+      .topbar { height: 68px; }
+      .brand { font-size: 10px; }
+      .nav { gap: 15px; font-size: 10px; }
+      .nav .nav-cta { padding: 9px 11px; }
+      .hero { padding: 55px 0 58px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 8px; }
+      .hero-copy { font-size: 13px; }
+      .hero-art { min-height: 330px; margin-top: 15px; }
+      .hero-photo { inset: 8px 10% 12px 12%; width: 78%; height: calc(100% - 20px); }
+      .hero-orbit { inset: 0 4% 2% 6%; }
+      .hero-sticker { right: 3%; bottom: 15px; width: 88px; height: 88px; font-size: 9px; }
+      .hero-bottom { margin-top: 30px; }
+      .section { padding: 76px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 18px; }
+      .places { grid-template-columns: 1fr; gap: 16px; }
+      .place-card { min-height: 410px; }
+      .more-spots { align-items: flex-start; flex-direction: column; padding: 24px; }
+      .day-grid { grid-template-columns: 1fr; gap: 30px; }
+      .note { padding: 74px 0; }
+    }
+    @media (max-width: 420px) {
+      .wrap { width: calc(100% - 32px); }
+      .nav { gap: 10px; }
+      .nav a:first-child { display: none; }
+      .hero-art { min-height: 285px; }
+      .place-card { min-height: 380px; }
+      .place-content { padding: 25px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar" id="top">
+    <a class="brand" href="#top" aria-label="市川おでかけ案内 トップ">
+      <span class="brand-mark">i.</span>
+      <span>ICHIKAWA<br>PLAYFUL DAYS</span>
+    </a>
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a href="#spots">MAIN SPOTS</a>
+      <a href="spots.html">MORE SPOTS</a>
+      <a href="#day">DAY PLAN</a>
+      <a class="nav-cta" href="#about">ABOUT ICHIKAWA ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">CHIBA, JAPAN — 35°43′N</div>
+          <h1 id="hero-title">市川で、<br>遊ぼう。<span>Make it a day.</span></h1>
+          <p class="hero-copy">お買い物も、ゲームも、おいしい寄り道も。<br>気分に合わせて一日を組み立てられる、千葉県市川市へ。今日はちょっと、遊びに行こう。</p>
+          <a class="hero-link" href="#spots">市川の遊び場を見つける <span class="circle-arrow" aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero-art" aria-label="市川の緑豊かな風景">
+          <div class="hero-orbit"></div>
+          <img class="hero-photo" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=85" alt="緑と水辺が広がる穏やかな風景">
+          <div class="hero-sticker">A LITTLE<br>MORE FUN<br><span>in Ichikawa</span></div>
+          <span class="vertical-note">A GOOD DAY STARTS HERE</span>
+        </div>
+      </div>
+      <div class="hero-bottom"><span>ICHIKAWA CITY, CHIBA</span><span>SHOP · PLAY · REPEAT　 ↓</span></div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Find your fun in Ichikawa</span><b>✳</b><span>Find your fun in Ichikawa</span><b>✳</b><span>Find your fun in Ichikawa</span><b>✳</b><span>Find your fun in Ichikawa</span><b>✳</b>
+        <span>Find your fun in Ichikawa</span><b>✳</b><span>Find your fun in Ichikawa</span><b>✳</b><span>Find your fun in Ichikawa</span><b>✳</b><span>Find your fun in Ichikawa</span><b>✳</b>
+      </div>
+    </div>
+
+    <section class="wrap section" id="spots" aria-labelledby="spots-title">
+      <div class="section-head">
+        <div><div class="section-kicker">TWO WAYS TO PLAY</div><h2 id="spots-title">今日はどっちから？</h2></div>
+        <p>まったり過ごす日も、思いきりはしゃぐ日も。市川の「楽しい」を代表する、ふたつのスポット。</p>
+      </div>
+      <div class="places">
+        <a class="place-card colton" href="https://www.nikke-cp.gr.jp/" target="_blank" rel="noreferrer">
+          <span class="place-number">01 / SLOW &amp; EASY</span>
+          <div class="place-content">
+            <div class="place-label">SHOPPING · FOOD · CINEMA</div>
+            <h3 class="place-title">ニッケコルトンプラザ<small>NIKKE COLTON PLAZA</small></h3>
+            <p class="place-desc">ショッピングに映画、ごはんまで。気の向くままに歩いて、気づけば一日たっぷり楽しめる。</p>
+            <span class="place-more">公式サイトを見る <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+        <a class="place-card daikeien" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%85%B6%E5%9C%92%E9%81%8A%E5%9C%92%E5%9C%B0" target="_blank" rel="noreferrer">
+          <span class="place-number">02 / ALL IN</span>
+          <div class="place-content">
+            <div class="place-label">ARCADE · GAMES · MORE</div>
+            <h3 class="place-title">大慶園遊園地<small>DAIKEIEN AMUSEMENT PARK</small></h3>
+            <p class="place-desc">ゲームやアクティビティで、いつもの仲間と大盛り上がり。時間を忘れて遊び尽くそう。</p>
+            <span class="place-more">場所を地図で見る <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+      </div>
+      <div class="more-spots">
+        <p>まだまだある、市川の寄り道スポット。<span>公園・動物園・歴史さんぽも楽しもう。</span></p>
+        <a href="spots.html">市川のおすすめスポットを見る <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="day section" id="day" aria-labelledby="day-title">
+      <div class="wrap day-grid">
+        <div class="day-intro">
+          <div class="section-kicker">A DAY IN ICHIKAWA</div>
+          <h2 id="day-title">遊びの予定は、<br>ゆるくていい。</h2>
+          <p>寄り道も、予定変更も大歓迎。気分に合わせて楽しむ、市川の一日プラン。</p>
+        </div>
+        <div class="timeline">
+          <div class="time-row">
+            <div class="time">11:00</div>
+            <div><h3>コルトンで、のんびりスタート</h3><p>お店をのぞいたり、ランチを楽しんだり。まずは気ままに過ごそう。</p></div>
+          </div>
+          <div class="time-row">
+            <div class="time">15:00</div>
+            <div><h3>大慶園で、遊びスイッチON</h3><p>ゲームやアクティビティに夢中になって、みんなでわいわい。</p></div>
+          </div>
+          <div class="time-row">
+            <div class="time">19:00</div>
+            <div><h3>今日の思い出を、おいしく締めくくる</h3><p>「次は何して遊ぶ？」そんな話をしながら、帰り道へ。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap note" id="about" aria-labelledby="about-title">
+      <div class="quote-mark" aria-hidden="true">“</div>
+      <h2 id="about-title">近くにあるのに、<br>まだ知らない楽しさがある。</h2>
+      <p>千葉県市川市。次の休日は、いつもより少しだけ寄り道してみませんか。</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <a class="brand" href="#top"><span class="brand-mark">i.</span><span>ICHIKAWA PLAYFUL DAYS</span></a>
+      <small>AN UNOFFICIAL GUIDE TO ICHIKAWA, CHIBA</small>
+      <a class="footer-link" href="#spots">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
